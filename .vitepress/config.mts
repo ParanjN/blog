@@ -1,7 +1,11 @@
 import { defineConfig } from 'vitepress'
 
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
+const base = process.env.GITHUB_ACTIONS === 'true' && repoName ? `/${repoName}/` : '/'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base,
   title: "Nachiket Paranjape Blog",
   description: "Nachiket Paranjape Blog",
   themeConfig: {
